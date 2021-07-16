@@ -1,0 +1,14 @@
+<!-- layout, on every page the same -->
+{% extends "encyclopedia/layout.html" %}
+
+<!-- title of page -->
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block body %}
+    <!-- content of entry and button to edit that content -->
+    {{ content|safe }}
+    <!--https://getbootstrap.com/docs/4.0/components/buttons/-->
+    <a class="btn btn-outline-secondary" href="/wiki/{{ title }}/edit">Edit</a> 
+{% endblock %}

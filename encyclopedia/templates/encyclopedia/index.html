@@ -1,0 +1,29 @@
+<!-- layout, on every page the same -->
+{% extends "encyclopedia/layout.html" %}
+
+<!-- title of page -->
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+<!-- look if user is searching -->
+{% block body %}
+{% if search %}
+<h1>Search results</h1>
+{% else %}
+<h1>All Pages</h1>
+{% endif %}
+
+<!-- display all entries, no entries? display tekst and button -->
+<ul>
+    {% for entry in entries %}
+    <a href="/wiki/{{ entry }}">
+        <li>{{ entry }}</li>
+    </a>
+    {% empty %}
+    <p>No search results for this query</p>
+    <a href="{% url 'index' %}">Back to index</a>
+    {% endfor %}
+</ul>
+
+{% endblock %}
